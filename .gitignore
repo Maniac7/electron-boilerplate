@@ -1,8 +1,8 @@
-node_modules
+
 .DS_Store
 Thumbs.db
 *.log
-
+newlotromap.code-workspace
 /dist
 /temp
 
@@ -10,3 +10,4 @@ Thumbs.db
 /app/app.js
 /app/background.js
 /app/**/*.map
+
