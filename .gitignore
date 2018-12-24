@@ -1,7 +1,8 @@
-node_modules
+
 .DS_Store
 Thumbs.db
 *.log
+newlotromap.code-workspace
 
 /dist
 /temp
