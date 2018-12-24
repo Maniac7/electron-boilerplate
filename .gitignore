@@ -3,6 +3,7 @@
 Thumbs.db
 *.log
 newlotromap.code-workspace
+
 /dist
 /temp
 
