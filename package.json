@@ -1,13 +1,12 @@
 {
-  "name": "electron-boilerplate",
-  "productName": "Electron Boilerplate",
-  "description": "Starter for your Electron application",
+  "name": "lotromapviewer",
+  "productName": "LOTRMaps",
+  "description": "",
   "version": "0.0.0",
   "private": true,
-  "author": "Mr. Gumby <mr.gumby@example.com>",
-  "copyright": "© 2017, Gumby inc.",
-  "homepage": "http://example.com",
-  "main": "app/background.js",
+  "author": "treefortmaniac7",
+  "main": "app/main.js",
+  "repository": {"type": "git", "url": "https://github.com/Maniac7/electron-boilerplate"},
   "build": {
     "appId": "com.example.electron-boilerplate",
     "files": [
