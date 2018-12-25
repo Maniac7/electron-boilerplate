@@ -9,6 +9,9 @@ import { app, Menu } from "electron";
 import { devMenuTemplate } from "./menu/dev_menu_template";
 import { editMenuTemplate } from "./menu/edit_menu_template";
 import createWindow from "./helpers/window";
+import { createUserTask } from "./helpers/new_task";
+import jetpack from "fs-jetpack";
+const appDir = jetpack.cwd(app.getAppPath());
 
 // Special module holding environment variables which you declared
 // in config/env_xxx.json file.
@@ -35,7 +38,8 @@ app.on("ready", () => {
 
   const mainWindow = createWindow("main", {
     width: 1000,
-    height: 600
+    height: 600,
+    frame: false
   });
 
   mainWindow.loadURL(
@@ -48,6 +52,8 @@ app.on("ready", () => {
 
   if (env.name === "development") {
     mainWindow.openDevTools();
+    // Create shortcut for opening app
+    createUserTask("Maniac Map", "Launch a new instance", appDir, process.execPath)
   }
 });
 

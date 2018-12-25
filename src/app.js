@@ -3,6 +3,7 @@ import "./stylesheets/main.css";
 // Small helpers you might want to keep
 import "./helpers/context_menu.js";
 import "./helpers/external_links.js";
+import "./helpers/navbuttons.js";
 
 // ----------------------------------------------------------------------------
 // Everything below is just to show you how it works. You can delete all of it.
@@ -10,8 +11,6 @@ import "./helpers/external_links.js";
 
 import { remote } from "electron";
 import jetpack from "fs-jetpack";
-import { greet } from "./hello_world/hello_world";
-import env from "env";
 
 const app = remote.app;
 const appDir = jetpack.cwd(app.getAppPath());
@@ -26,10 +25,3 @@ const osMap = {
   linux: "Linux"
 };
 
-document.querySelector("#app").style.display = "block";
-document.querySelector("#greet").innerHTML = greet();
-document.querySelector("#os").innerHTML = osMap[process.platform];
-document.querySelector("#author").innerHTML = manifest.author;
-document.querySelector("#env").innerHTML = env.name;
-document.querySelector("#electron-version").innerHTML =
-  process.versions.electron;
