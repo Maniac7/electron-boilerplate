@@ -1,27 +1,53 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Electron Boilerplate</title>
+    <title>Maniac Maps [Dev Build]</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" name="viewport">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 <body>
-
-  <div id="app" class="container" style="display: none;">
-    <h1 id="greet"></h1>
-    <p>
-      Welcome to <a href="http://electron.atom.io" class="js-external-link">Electron</a> app running on this <strong id="os"></strong> machine.
-    </p>
-    <p>
-      App author: <strong id="author"></strong>
-    </p>
-    <p>
-      Environment: <strong id="env"></strong>
-    </p>
-    <p>
-      Electron version: <strong id="electron-version"></strong>
-    </p>
-  </div>
-
-  <script src="app.js"></script>
+<div class="full-window">
+    <header class="titlebar">
+        <div class="drag-region">
+            <div id="window-title">
+                <span>Manaic Does Stuff, An Electron Project</span>
+            </div> 
+            <div id="window-controls">
+            <div class="titlebar-buttons" id="min-button">
+                <svg name="TitleBarMinimize" width="12" height="12" viewBox="0 0 12 12">
+                    <rect fill="#ffffff" width="10" height="1" x="1" y="6"></rect>
+                </svg>
+            </div>
+            <div class="titlebar-buttons" id="max-button">
+                <svg name="TitleBarMaximize" width="12" height="12" viewBox="0 0 12 12">
+                    <rect width="9" height="9" x="1.5" y="1.5" fill="none" stroke="#ffffff"></rect>
+                </svg>
+            </div>
+            <div class="titlebar-buttons" id="restore-button">
+                <svg name="TitleBarMaximize" width="12" height="12" viewBox="0 0 12 12">
+                    <rect width="9" height="9" x="1.5" y="1.5" fill="none" stroke="#ffffff"></rect>
+                </svg>
+            </div>
+            <div class="titlebar-buttons" id="close-button">
+                <svg name="TitleBarClose" width="12" height="12" viewBox="0 0 12 12">
+                    <polygon fill="#ffffff" fill-rule="evenodd" points="11 1.576 6.583 6 11 10.424 10.424 11 6 6.583 1.576 11 1 10.424 5.417 6 1 1.576 1.576 1 6 5.417 10.424 1"></polygon>
+                </svg>
+            </div>
+          </div>
+        </div>
+    </header>
+    <div class="nav-col column-view darker">
+    Woot fully responsive design!
+    </div>
+    <div class="map-col column-view dark">
+        <div class="map-viewport" style="background-color: antiquewhite"></div>
+        <div class="map-info darkest"></div>
+    </div>
+    <div class="menu-bar">
+        
+    </div>
+</div>
+<script src="app.js"></script>
 </body>
 </html>
