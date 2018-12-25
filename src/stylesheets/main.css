@@ -1,24 +1,168 @@
-html,
-body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
+/* Fill out the whole screen*/
 
 body {
+  margin: 0;
+}
+
+.full-window {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 50px);
+  width: 100vw;
+}
+
+/* Golden Ratio widths */
+.small-goldw {
+  width: 38.2%;
+}
+
+.large-goldw {
+  width: 61.8%;
+}
+
+/* Custom Titlebar */
+.titlebar {
+  display: block;
+  position: fixed;
+  height: 16px;
+  width: 100vw;
+  background: #101010;
+  padding: 2px;
+  color: #FFF;
+}
+
+.drag-region {
+  width: 100%;
+  height: 100%;
+  -webkit-app-region: drag;
+}
+
+#window-controls {
+  display: grid;
+  grid-template-columns: repeat(3, 30px);
+  position: absolute;
+  top: 0;
+  left: calc(100vw - 91px);
+  height: 100%;
+  -webkit-app-region: no-drag;
+}
+
+#window-controls .titlebar-buttons {
+  grid-row: 1 / span 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: sans-serif;
-  color: #525252;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  cursor: default;
+  opacity: 0.6;
 }
 
-a {
-  text-decoration: none;
-  color: #cb3837;
+#window-controls .titlebar-buttons:hover {
+  cursor: pointer;
+  background: #202020;
+  opacity: 1;
 }
 
-.container {
-  text-align: center;
+#window-controls #min-button {
+  grid-column: 1;
+}
+
+#window-controls #max-button, #window-controls #restore-button {
+  grid-column: 2;
+}
+
+#window-controls #close-button {
+  grid-column: 3;
+}
+
+#window-controls .titlebar-button:hover {
+  background: rgba(255,255,255,0.2);
+  opacity: 1;
+}
+
+#window-controls #close-button:hover {
+  background: #E81123;
+}
+
+#window-controls #restore-button {
+  display: none;
+}
+
+.titlebar #drag-region {
+  display: grid;
+  grid-template-columns: auto 90px;
+}
+
+#window-title {
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 12px;
+  margin-left: 8px;
+  overflow-x: hidden;
+}
+
+#window-title span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+}
+
+/* Bottom menu bar */
+.menu-bar {
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 16px;
+  padding: 2px;
+  background: #008000;
+}
+
+/* Main Display Sections */
+.column-view {
+  padding: 5px;
+  height: 100%;
+  color: #fff;
+}
+
+.nav-col {
+  flex-grow: 0.2;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.map-col {
+  display: flex;
+  flex-grow: 0.8;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.map-viewport {
+  margin-bottom: 5px;
+  flex-grow: 0.72;
+}
+
+.map-info {
+  flex-grow: 0.28;
+}
+
+/* Dark Colour Scheme */
+.dark {
+  background-color: #303030;
+}
+
+.darker {
+  background-color: #202020;
+}
+
+.darkest {
+  background-color: #101010;
 }
