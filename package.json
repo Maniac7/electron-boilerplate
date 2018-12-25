@@ -5,7 +5,7 @@
   "version": "0.0.0",
   "private": true,
   "author": "treefortmaniac7",
-  "main": "app/main.js",
+  "main": "app/background.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/Maniac7/electron-boilerplate"
