@@ -135,6 +135,10 @@ body {
   flex-grow: 0.2;
   margin-top: 20px;
   margin-bottom: 20px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .map-col {

@@ -5,6 +5,6 @@ import fs from 'fs';
 let mapIndexJSON = fs.readFileSync(__dirname + '\\mapindex.json', (err) => {console.log(err)});
 const mapIndex = JSON.parse(mapIndexJSON);
 
-console.log(mapIndex.sectorIndex);
+console.log(mapIndex);
 
 //initialise object containing all map names
