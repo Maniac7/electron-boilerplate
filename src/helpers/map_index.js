@@ -38,7 +38,7 @@ mapIndex.genNavTree = () => {
     for (let iname of mapIndex.mapArr) {
         let curItem = mapIndex[iname];
         let srcb = null;
-        if (curItem.hasOwnProperty(srcb)) {srcb = curItem.srcb};
+        if (curItem.hasOwnProperty("srcb")) {srcb = curItem.srcb};
         mapIndex.newTreeItem(curItem.depth,iname,curItem.name,curItem.parent,curItem.slevel,srcb);
     }
 };
