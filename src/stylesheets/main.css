@@ -135,7 +135,7 @@ body {
   flex-grow: 0.2;
   margin-top: 20px;
   margin-bottom: 20px;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
@@ -157,6 +157,12 @@ body {
 .map-info {
   flex-grow: 0.28;
 }
+
+/* Nav Tree Styling */
+
+/*.topTreeItem {
+
+}*/
 
 /* Dark Colour Scheme */
 .dark {
