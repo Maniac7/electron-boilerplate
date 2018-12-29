@@ -35,11 +35,11 @@ console.log(mapIndex.mapArr);
 
 //loop through array of maps and create item for each
 mapIndex.genNavTree = () => {
-    for (let inam of mapIndex.mapArr) {
+    for (let iname of mapIndex.mapArr) {
         let curItem = mapIndex[inam];
         let srcb = null;
         if (curItem.hasOwnProperty("srcb")) {srcb = curItem.srcb};
-        mapIndex.newTreeItem(curItem.depth,inam,curItem.name,curItem.parent,curItem.slevel,srcb);
+        mapIndex.newTreeItem(curItem.depth,iname,curItem.name,curItem.parent,curItem.slevel,srcb);
     }
 };
 
