@@ -1,5 +1,5 @@
 {
-    "mapArr": ["eriador","rhovanion","gondor","mordor","eredluin"],
+    "mapArr": ["eriador","rhovanion","gondor","mordor","eredluin "],
     "eriador": {"name":"Eriador","srcb":"eriadorb.jpg","srcm":"eriadorm.jpg","slevel":"1","depth":"top","parent":"treeMaster"},
     "rhovanion": {"name":"Rhovanion","srcb":"rhovanionb.jpg","srcm":"rhovanionm.jpg","slevel":"50","depth":"top","parent":"treeMaster"},
     "gondor": {"name":"Gondor","srcb":"gondorb.jpg","srcm":"gondorm.jpg","slevel":"95","depth":"top","parent":"treeMaster"},
