@@ -10,18 +10,20 @@ console.log(mapIndex.mapArr);
  mapIndex.newTreeItem = (depth,iname,name,parent,slevel,srcb) => {
 
     let treeItem = document.createElement("div");
+    let treeItemDiv = document.createElement("div");
     let itemName = document.createTextNode(name);
     let itemParent = document.getElementById(parent);
 
 //add name of item to the element and append item
     treeItem.appendChild(itemName);
-    itemParent.appendChild(treeItem);
+    treeItemDiv.appendChild(treeItem);
+    itemParent.appendChild(treeItemDiv);
 
 //set item id for appending children **REQUIRES PARENTS CREATED BEFORE CHILDREN**
-    treeItem.id = iname;
+    treeItemDiv.id = iname;
 
 //set order according to starting level
-    treeItem.style.order = slevel;
+    treeItemDiv.style.order = slevel;
 
 //add class for styling
     if(depth == "top") {
