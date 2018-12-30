@@ -11,9 +11,10 @@
     "url": "https://github.com/Maniac7/electron-boilerplate"
   },
   "build": {
-    "appId": "com.example.electron-boilerplate",
+    "appId": "com.electron.maniac-lotromaps",
     "files": [
       "app/**/*",
+      "app/mapindex.json",
       "node_modules/**/*",
       "package.json"
     ],
