@@ -1,4 +1,4 @@
-/* Fill out the whole screen*/
+/* Fill out the screen properly*/
 
 body {
   margin: 0;
@@ -132,7 +132,7 @@ body {
 }
 
 .nav-col {
-  flex-grow: 0.2;
+  width: 300px;
   margin-top: 20px;
   margin-bottom: 20px;
   overflow-y: auto;
@@ -143,7 +143,7 @@ body {
 
 .map-col {
   display: flex;
-  flex-grow: 0.8;
+  flex-grow: 1;
   flex-direction: column;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -159,10 +159,37 @@ body {
 }
 
 /* Nav Tree Styling */
+.nav-title {
+  font-size: 22px;
+  margin-bottom: 7px;
+  margin-top: 2px;
+}
 
-/*.topTreeItem {
+.topTreeItem {
+  margin-bottom: 5px;
+  padding: 30px 7px;
+  background: steelblue;
+  flex-direction: column;
+  display: flex;
+  flex-grow: 1;
+}
 
-}*/
+.subTreeItem {
+  margin-bottom: 5px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.subParent {
+  margin-left: 10%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Arrows for nav tree (http://cssdeck.com/labs/arrow-svg) */
 
 /* Dark Colour Scheme */
 .dark {

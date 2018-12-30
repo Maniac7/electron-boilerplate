@@ -7,7 +7,7 @@ const mapIndex = JSON.parse(mapIndexJSON);
 
 console.log(mapIndex.mapArr);
 
- mapIndex.newTreeItem = (depth,iname,name,parent,slevel,srcb) => {
+ mapIndex.newTreeItem = (depth,iname,name,parent,slevel,hasChild,srcb) => {
 
     let treeItem = document.createElement("div");
     let treeItemDiv = document.createElement("div");
@@ -30,8 +30,14 @@ console.log(mapIndex.mapArr);
         treeItem.classList.add("topTreeItem");
     } else if (depth == "sub") {
         treeItem.classList.add("subTreeItem");
+        treeItemDiv.style.display = "none";
+        treeItemDiv.classList.add("subParent");
     };
-    
+
+    //add event listener to call mapIndex.toggleShowChildren
+    if (hasChild == "true") {
+    treeItem.addEventListener("click", function(){mapIndex.toggleShowChildren(this);});
+    }
     console.log(srcb);
 };
 
@@ -41,8 +47,26 @@ mapIndex.genNavTree = () => {
         let curItem = mapIndex[iname];
         let srcb = null;
         if (curItem.hasOwnProperty("srcb")) {srcb = curItem.srcb};
-        mapIndex.newTreeItem(curItem.depth,iname,curItem.name,curItem.parent,curItem.slevel,srcb);
+        mapIndex.newTreeItem(curItem.depth,iname,curItem.name,curItem.parent,curItem.slevel,curItem.hasChild,srcb);
     }
 };
+
+//toggle whether the item's children are hidden or shown
+mapIndex.toggleShowChildren = (el) => {
+    let status = el.nextSibling.style.display;
+    let itemSiblings = el.parentElement.children;
+    if (el.parentElement.parentElement.id = "treeMaster") {
+        console.log("Seems good!");
+    }
+    for (let i = 1; i < itemSiblings.length; i++) {
+        let curItem = itemSiblings[i];
+        if (status == "none") {
+            curItem.style.display = "flex";
+        }
+        else {
+            curItem.style.display = "none";
+        }
+    }
+}
 
 mapIndex.genNavTree();
