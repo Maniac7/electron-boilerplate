@@ -14,9 +14,11 @@
     "appId": "com.electron.maniac-lotromaps",
     "files": [
       "app/**/*",
-      "app/mapindex.json",
       "node_modules/**/*",
       "package.json"
+    ],
+    "extraResources": [
+      "mapindex.json"
     ],
     "directories": {
       "buildResources": "resources"
