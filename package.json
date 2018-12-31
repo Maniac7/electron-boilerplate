@@ -17,7 +17,9 @@
       "node_modules/**/*",
       "package.json"
     ],
-    
+    "extraResources": [
+      "mapindex.json"
+    ],
     "directories": {
       "buildResources": "resources"
     },

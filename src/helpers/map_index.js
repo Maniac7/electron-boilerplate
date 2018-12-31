@@ -1,7 +1,9 @@
 //loads latest map index and metadata from mapindex.json
 
 import fs from 'fs';
-import mapIndex from './mapindex.json';
+
+let mapIndexJSON = fs.readFileSync(`${process.resourcesPath}/mapindex.json`, (err) => {console.log(err)});
+const mapIndex = JSON.parse(mapIndexJSON);
 
 console.log(mapIndex.mapArr);
 
