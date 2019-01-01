@@ -1,9 +1,8 @@
 //loads latest map index and metadata from mapindex.json
 
 import fs from 'fs';
-import { process } from 'electron';
 
-let mapIndexJSON = fs.readFileSync(process.resourcesPath + '\\mapIndex.json', (err) => {console.log(err)});
+let mapIndexJSON = fs.readFileSync(`${process.resourcesPath}/mapindex.json`, (err) => {console.log(err)});
 const mapIndex = JSON.parse(mapIndexJSON);
 
 console.log(mapIndex.mapArr);

@@ -1,4 +1,4 @@
-//ensuress latestMapIndex from "./mapdb"
+//ensures latestMapIndex from "./mapdb"
 
 import enmap from "enmap";
 import fs from "fs";
