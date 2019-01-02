@@ -1,9 +1,18 @@
 //loads latest map index and metadata from mapindex.json
 
 import fs from 'fs';
+import env from 'env';
 
-let mapIndexJSON = fs.readFileSync(`${process.resourcesPath}/mapindex.json`, (err) => {console.log(err)});
-const mapIndex = JSON.parse(mapIndexJSON);
+let mapIndex;
+let mapIndexJSON;
+if (env.name == "production"){
+    mapIndexJSON = fs.readFileSync(`${process.resourcesPath}/mapindex.json`, (err) => {console.log(err)});
+}
+else if (env.name == "development"){
+    mapIndexJSON = fs.readFileSync(`./mapindex.json`, (err) => {console.log(err)});
+}
+
+mapIndex = JSON.parse(mapIndexJSON);
 
 console.log(mapIndex.mapArr);
 
