@@ -169,17 +169,31 @@ body {
   margin-bottom: 5px;
   padding: 30px 7px;
   background: steelblue;
-  flex-direction: column;
   display: flex;
-  flex-grow: 1;
+  justify-content: space-between;
+  align-items: center;
+  transition: opacity 0.1s ease-in-out, padding 0.5s ease-in-out;
+  cursor: pointer;
+  border-radius: 5px;
+  opacity: 0.9;
+}
+
+.topTreeItemE {
+  padding: 5px;
 }
 
 .subTreeItem {
   margin-bottom: 5px;
   font-size: 14px;
+  background: royalblue;
   display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+  opacity: 0.9;
+  transition: all 0.1s ease-in-out;
 }
 
 .subParent {
@@ -189,7 +203,30 @@ body {
   flex-grow: 1;
 }
 
+.navTreeItem:hover {
+  opacity: 1;
+}
+
 /* Arrows for nav tree (http://cssdeck.com/labs/arrow-svg) */
+
+button {
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0;
+  outline:0;
+  padding: 0px;
+}
+
+.navArrow {
+  cursor: pointer;
+  top: 50%;
+  height: 17px;
+}
+
+.navTreeItem:hover polyline {
+  stroke-width: 8;
+  transition: all 100ms ease-in-out;
+}
 
 /* Dark Colour Scheme */
 .dark {

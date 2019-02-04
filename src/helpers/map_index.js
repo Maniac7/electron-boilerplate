@@ -34,19 +34,30 @@ console.log(mapIndex.mapArr);
 //set order according to starting level
     treeItemDiv.style.order = slevel;
 
-//add class for styling
+//add classes for styling
     if(depth == "top") {
         treeItem.classList.add("topTreeItem");
+        treeItemDiv.style.maxHeight = treeItemDiv.offsetHeight + 1 + "px"
     } else if (depth == "sub") {
         treeItem.classList.add("subTreeItem");
         treeItemDiv.style.display = "none";
         treeItemDiv.classList.add("subParent");
     };
+    
+    treeItem.classList.add("navTreeItem");
 
     //add event listener to call mapIndex.toggleShowChildren
     if (hasChild == "true") {
-    treeItem.addEventListener("click", function(){mapIndex.toggleShowChildren(this);});
+        let masterNavButton = document.getElementById("masterNavButton").firstChild.nextSibling;
+        let navButtonClone = masterNavButton.cloneNode(true);
+        treeItem.appendChild(navButtonClone);
+        treeItem.addEventListener("click", function(){mapIndex.toggleShowChildren(this);});
     }
+
+    // add max-height based on total height of element
+    // let maxH = JSON.stringify(treeItemDiv.offsetHeight + 1);
+    // treeItemDiv.style.maxHeight = maxH + "px";
+
     console.log(srcb);
 };
 
@@ -64,18 +75,69 @@ mapIndex.genNavTree = () => {
 mapIndex.toggleShowChildren = (el) => {
     let status = el.nextSibling.style.display;
     let itemSiblings = el.parentElement.children;
-    if (el.parentElement.parentElement.id = "treeMaster") {
-        console.log("Seems good!");
+    // for case where a top item is clicked
+    // this will toggle the style changes for all of them (size, etc)
+    if (el.parentElement.parentElement.id == "treeMaster") {
+        if (mapIndex.checkTopOpen(el)) {
+            console.log("another element is expanded");
+        }
+        else {
+            mapIndex.toggleTopStyle(el);
+        }
     }
+    // toggles visibility of all sub tree items
     for (let i = 1; i < itemSiblings.length; i++) {
         let curItem = itemSiblings[i];
         if (status == "none") {
             curItem.style.display = "flex";
+            el.classList.add("expandedNavItem");
+            curItem.style.maxHeight = 32 + "px";
         }
         else {
             curItem.style.display = "none";
+            if (el.classList.contains("expandedNavItem")) {
+                el.classList.remove("expandedNavItem");
+            }
         }
     }
 }
+
+//Checks if the top tree items are all closed except current element
+mapIndex.checkTopOpen = (el) => {
+    let topNavItems = document.getElementsByClassName("topTreeItem");
+    for (let j = 0; j < topNavItems.length; j++) {
+        if (topNavItems[j] != el) {
+            if (topNavItems[j].classList.contains("expandedNavItem")) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+//Toggles styles of all top tree item elements
+mapIndex.toggleTopStyle = (el) => {
+    let topNavItems = document.getElementsByClassName("topTreeItem");
+    for (let j = 0; j < topNavItems.length; j++) {
+        if (topNavItems[j] !== el) {
+            if (topNavItems[j].classList.includes("topTreeItemE")) {
+                topNavItems[j]
+            } else {
+                topNavItems[j].parentElement.style.maxHeight = "34px";
+            }
+        }
+        topNavItems[j].classList.toggle("topTreeItemE");
+    }
+}
+
+//Gets total height of an element (inc padding, margin, etc.)
+// mapIndex.outerHeight = (el) => {
+
+//     // var styles = window.getComputedStyle(el);
+//     // var margin = parseFloat(styles['marginTop']) +
+//     //              parseFloat(styles['marginBottom']);
+  
+//     return Math.ceil(el.offsetHeight);
+// }
 
 mapIndex.genNavTree();
