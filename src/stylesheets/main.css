@@ -161,12 +161,12 @@ body {
 /* Nav Tree Styling */
 .nav-title {
   font-size: 22px;
-  margin-bottom: 7px;
+  margin-bottom: 2px;
   margin-top: 2px;
 }
 
 .topTreeItem {
-  margin-bottom: 5px;
+  margin-top: 5px;
   padding: 30px 7px;
   background: steelblue;
   display: flex;
@@ -184,7 +184,7 @@ body {
 }
 
 .subTreeItem {
-  margin-bottom: 5px;
+  margin-top: 5px;
   height: 17px;
   font-size: 14px;
   background: royalblue;
@@ -220,6 +220,8 @@ button {
   outline:0;
   padding: 0px;
   display: block;
+  margin-left: 5px;
+  transition: all 0.5s ease-in-out
 }
 
 .navArrow {
@@ -231,6 +233,10 @@ button {
 .navTreeItem:hover polyline {
   stroke-width: 8;
   transition: all 100ms ease-in-out;
+}
+
+.rBackQuarter {
+  transform: rotate(-90deg);
 }
 
 /* Dark Colour Scheme */

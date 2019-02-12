@@ -52,10 +52,6 @@ console.log(mapIndex.mapArr);
         treeItem.addEventListener("click", function(){mapIndex.toggleShowChildren(this);});
     }
 
-    // add max-height based on total height of element
-    // let maxH = JSON.stringify(treeItemDiv.offsetHeight + 1);
-    // treeItemDiv.style.maxHeight = maxH + "px";
-
     console.log(srcb);
 };
 
@@ -73,6 +69,9 @@ mapIndex.genNavTree = () => {
 mapIndex.toggleShowChildren = (el) => {
     let curItem = mapIndex[el.nextSibling.id];
     let mHeightChange;
+
+    // handles rotating arrow
+    el.firstChild.nextSibling.classList.toggle("rBackQuarter");
 
     // handles min/max height and height change within base element
     if (!el.nextSibling.style.maxHeight) {
