@@ -176,6 +176,7 @@ body {
   cursor: pointer;
   border-radius: 5px;
   opacity: 0.9;
+  min-height: 19px;
 }
 
 .topTreeItemE {
@@ -184,6 +185,7 @@ body {
 
 .subTreeItem {
   margin-bottom: 5px;
+  height: 17px;
   font-size: 14px;
   background: royalblue;
   display: flex;
@@ -193,14 +195,17 @@ body {
   cursor: pointer;
   border-radius: 3px;
   opacity: 0.9;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out
 }
 
 .subParent {
   margin-left: 10%;
-  display: flex;
   flex-direction: column;
   flex-grow: 1;
+  overflow: hidden;
+  max-height: 0px;
+  min-height: 0px;
+  transition: max-height 0.5s ease-in-out, min-height 0.5s ease-in-out;
 }
 
 .navTreeItem:hover {
@@ -210,11 +215,11 @@ body {
 /* Arrows for nav tree (http://cssdeck.com/labs/arrow-svg) */
 
 button {
-  -webkit-appearance: none;
   background: transparent;
   border: 0;
   outline:0;
   padding: 0px;
+  display: block;
 }
 
 .navArrow {

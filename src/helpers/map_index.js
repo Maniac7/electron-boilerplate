@@ -18,32 +18,30 @@ console.log(mapIndex.mapArr);
 
  mapIndex.newTreeItem = (depth,iname,name,parent,slevel,hasChild,srcb) => {
 
-    let treeItem = document.createElement("div");
-    let treeItemDiv = document.createElement("div");
-    let itemName = document.createTextNode(name);
-    let itemParent = document.getElementById(parent);
+    let treeItem = document.createElement("div"),
+        treeItemDiv = document.createElement("div"),
+        itemName = document.createTextNode(name),
+        itemParent = document.getElementById(parent);
 
 //add name of item to the element and append item
     treeItem.appendChild(itemName);
-    treeItemDiv.appendChild(treeItem);
-    itemParent.appendChild(treeItemDiv);
+    itemParent.appendChild(treeItem);
+    treeItem.insertAdjacentElement("afterend", treeItemDiv)
 
 //set item id for appending children **REQUIRES PARENTS CREATED BEFORE CHILDREN**
     treeItemDiv.id = iname;
 
 //set order according to starting level
     treeItemDiv.style.order = slevel;
+    treeItem.style.order = slevel;
 
 //add classes for styling
-    if(depth == "top") {
+    if(depth === "top") {
         treeItem.classList.add("topTreeItem");
-        treeItemDiv.style.maxHeight = treeItemDiv.offsetHeight + 1 + "px"
-    } else if (depth == "sub") {
+    } else if (depth === "sub") {
         treeItem.classList.add("subTreeItem");
-        treeItemDiv.style.display = "none";
-        treeItemDiv.classList.add("subParent");
     };
-    
+    treeItemDiv.classList.add("subParent")
     treeItem.classList.add("navTreeItem");
 
     //add event listener to call mapIndex.toggleShowChildren
@@ -73,31 +71,51 @@ mapIndex.genNavTree = () => {
 
 //toggle whether the item's children are hidden or shown
 mapIndex.toggleShowChildren = (el) => {
-    let status = el.nextSibling.style.display;
-    let itemSiblings = el.parentElement.children;
+    let curItem = mapIndex[el.nextSibling.id];
+    let mHeightChange;
+
+    // handles min/max height and height change within base element
+    if (!el.nextSibling.style.maxHeight) {
+        el.nextSibling.style.maxHeight = el.nextSibling.scrollHeight + "px";
+        el.nextSibling.style.minHeight = el.nextSibling.scrollHeight + "px";
+        mHeightChange = el.nextSibling.scrollHeight;
+    } else {
+        el.nextSibling.style.maxHeight = null;
+        el.nextSibling.style.minHeight = null;
+        mHeightChange = - el.nextSibling.scrollHeight
+        }
+
+    el.classList.toggle("expandedNavItem");
+ 
+    if (curItem.parent !== "treeMaster") {
+        // declare variables for changing min/max heights of parent elements
+        let nextItem = mapIndex[curItem.parent],
+            nextEl = document.getElementById(curItem.parent),
+            newHeight,
+            nextElId;
+    do {
+        // update next element id and new height
+        nextElId = nextItem.parent;
+        newHeight = (parseFloat(nextEl.style.maxHeight) + mHeightChange) + "px";
+
+        // update min/max heights
+        nextEl.style.maxHeight = newHeight;
+        nextEl.style.minHeight = newHeight;
+
+        // handles selecting new element
+        nextItem = mapIndex[nextElId];
+        nextEl = document.getElementById(nextElId);
+    } while (nextItem.depth !== "notSub")
+}
+
     // for case where a top item is clicked
     // this will toggle the style changes for all of them (size, etc)
-    if (el.parentElement.parentElement.id == "treeMaster") {
+    if (el.parentElement.id === "treeMaster") {
         if (mapIndex.checkTopOpen(el)) {
             console.log("another element is expanded");
         }
         else {
             mapIndex.toggleTopStyle(el);
-        }
-    }
-    // toggles visibility of all sub tree items
-    for (let i = 1; i < itemSiblings.length; i++) {
-        let curItem = itemSiblings[i];
-        if (status == "none") {
-            curItem.style.display = "flex";
-            el.classList.add("expandedNavItem");
-            curItem.style.maxHeight = 32 + "px";
-        }
-        else {
-            curItem.style.display = "none";
-            if (el.classList.contains("expandedNavItem")) {
-                el.classList.remove("expandedNavItem");
-            }
         }
     }
 }
@@ -119,14 +137,8 @@ mapIndex.checkTopOpen = (el) => {
 mapIndex.toggleTopStyle = (el) => {
     let topNavItems = document.getElementsByClassName("topTreeItem");
     for (let j = 0; j < topNavItems.length; j++) {
-        if (topNavItems[j] !== el) {
-            if (topNavItems[j].classList.includes("topTreeItemE")) {
-                topNavItems[j]
-            } else {
-                topNavItems[j].parentElement.style.maxHeight = "34px";
-            }
-        }
         topNavItems[j].classList.toggle("topTreeItemE");
+        topNavItems[j].parentElement.classList.toggle("topTreeDivS");        
     }
 }
 

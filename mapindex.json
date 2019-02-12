@@ -1,13 +1,16 @@
 {
-    "mapArr": ["eriador","rhovanion","gondor","mordor","eredluin","shire","moria","thorinsgate","silverdeepmine"],
+    "mapArr": ["eriador","rhovanion","gondor","mordor","eredluin","shire","breeland","lonelands","moria","thorinsgate","silverdeepmine"],
+    "treeMaster": {"depth":"notSub"},
     "eriador": {"name":"Eriador","srcb":"eriadorb.jpg","srcm":"eriadorm.jpg","slevel":"1","depth":"top","parent":"treeMaster","hasChild":"true"},
     "rhovanion": {"name":"Rhovanion","srcb":"rhovanionb.jpg","srcm":"rhovanionm.jpg","slevel":"50","depth":"top","parent":"treeMaster","hasChild":"true"},
     "gondor": {"name":"Gondor","srcb":"gondorb.jpg","srcm":"gondorm.jpg","slevel":"95","depth":"top","parent":"treeMaster","hasChild":"false"},
     "mordor": {"name":"Mordor","srcb":"mordorb.jpg","srcm":"mordorm.jpg","slevel":"105","depth":"top","parent":"treeMaster","hasChild":"false"},
     "eredluin": {"name":"Ered Luin","srcm":"eredluinm.jpg","slevel":"1","depth":"sub","parent":"eriador","hasChild":"true"},
     "shire": {"name":"The Shire","srcm":"shirem.jpg","slevel":"1","depth":"sub","parent":"eriador","hasChild":"false"},
+    "breeland": {"name":"Bree-land","srcm":"breelandm.jpg","slevel":"1","depth":"sub","parent":"eriador","hasChild":"false"},
+    "lonelands": {"name":"The Lone-Lands","srcm":"lonelandsm.jpg","slevel":"20","depth":"sub","parent":"eriador","hasChild":"false"},
     "moria": {"name":"The Mines of Moria","srcm":"moriam.jpg","slevel":"50","depth":"sub","parent":"rhovanion","hasChild":"false"},
     "thorinsgate": {"name":"Thorin's Gate","srcm":"thorinsgatem.jpg","slevel":"1","depth":"sub","parent":"eredluin","hasChild":"true"},
     "silverdeepmine": {"name":"Silver Deep Mine","srcm":"silverdeepminem.jpg","slevel":"1","depth":"sub","parent":"thorinsgate","hasChild":"false"},
-    "unused": "The Shire,Bree-land,The Lone-lands,The North Downs,Evendim,The Trollshaws,The Misty Mountains,Angmar,Forochel,Eregion,Enedwaith,Dunland,Gap of Rohan,Nan Curunír,Ettenmoors"
+    "unused": "Bree-land,The Lone-lands,The North Downs,Evendim,The Trollshaws,The Misty Mountains,Angmar,Forochel,Eregion,Enedwaith,Dunland,Gap of Rohan,Nan Curunír,Ettenmoors"
 }
