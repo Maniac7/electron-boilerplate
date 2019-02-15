@@ -1,17 +1,18 @@
+/* eslint-disable prefer-const */
 // This helper remembers the size and position of your windows (and restores
 // them in that place after app relaunch).
 // Can be used for more than one window, just construct many
 // instances of it and give each different name.
 
-import { app, BrowserWindow, screen } from "electron";
-import jetpack from "fs-jetpack";
+import {app, BrowserWindow, screen} from 'electron';
+import jetpack from 'fs-jetpack';
 
 export default (name, options) => {
-  const userDataDir = jetpack.cwd(app.getPath("userData"));
+  const userDataDir = jetpack.cwd(app.getPath('userData'));
   const stateStoreFile = `window-state-${name}.json`;
   const defaultSize = {
     width: options.width,
-    height: options.height
+    height: options.height,
   };
   let state = {};
   let win;
@@ -19,7 +20,7 @@ export default (name, options) => {
   const restore = () => {
     let restoredState = {};
     try {
-      restoredState = userDataDir.read(stateStoreFile, "json");
+      restoredState = userDataDir.read(stateStoreFile, 'json');
     } catch (err) {
       // For some reason json can't be read (might be corrupted).
       // No worries, we have defaults.
@@ -34,7 +35,7 @@ export default (name, options) => {
       x: position[0],
       y: position[1],
       width: size[0],
-      height: size[1]
+      height: size[1],
     };
   };
 
@@ -51,12 +52,12 @@ export default (name, options) => {
     const bounds = screen.getPrimaryDisplay().bounds;
     return Object.assign({}, defaultSize, {
       x: (bounds.width - defaultSize.width) / 2,
-      y: (bounds.height - defaultSize.height) / 2
+      y: (bounds.height - defaultSize.height) / 2,
     });
   };
 
-  const ensureVisibleOnSomeDisplay = windowState => {
-    const visible = screen.getAllDisplays().some(display => {
+  const ensureVisibleOnSomeDisplay = (windowState) => {
+    const visible = screen.getAllDisplays().some((display) => {
       return windowWithinBounds(windowState, display.bounds);
     });
     if (!visible) {
@@ -71,14 +72,14 @@ export default (name, options) => {
     if (!win.isMinimized() && !win.isMaximized()) {
       Object.assign(state, getCurrentPosition());
     }
-    userDataDir.write(stateStoreFile, state, { atomic: true });
+    userDataDir.write(stateStoreFile, state, {atomic: true});
   };
 
   state = ensureVisibleOnSomeDisplay(restore());
 
   win = new BrowserWindow(Object.assign({}, options, state));
 
-  win.on("close", saveState);
+  win.on('close', saveState);
 
   return win;
 };

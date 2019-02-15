@@ -220,7 +220,7 @@ button {
   outline:0;
   padding: 0px;
   display: block;
-  margin-left: 5px;
+  margin-right: 5px;
   transition: all 0.5s ease-in-out
 }
 
