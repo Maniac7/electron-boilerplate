@@ -12,8 +12,9 @@ import {editMenuTemplate} from './menu/edit_menu_template';
 import createWindow from './helpers/window';
 import {createUserTask} from './helpers/new_task';
 import jetpack from 'fs-jetpack';
+import Store from 'electron-store';
 // eslint-disable-next-line no-unused-vars
-import dataStore from './helpers/datastore.js';
+const settings = new Store();
 const appDir = jetpack.cwd(app.getAppPath());
 
 // Special module holding environment variables which you declared
@@ -43,6 +44,8 @@ app.on('ready', () => {
     width: 1000,
     height: 600,
     frame: false,
+    minHeight: 500,
+    minWidth: 900,
   });
 
   mainWindow.loadURL(

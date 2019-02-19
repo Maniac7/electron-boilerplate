@@ -1,0 +1,71 @@
+{
+    "eriador": {
+        "mapSrc": "eriadorm.jpg",
+        "PoIs": null,
+        "info": "Eriador (Sindarin for Lonely-land) is a land in the far northwest of Middle-earth. This land is composed of many Regions, which are described below. Eriador spans from the Blue Mountains in the west (Ered Luin in Sindarin), to the Misty Mountains in the east, from Forochel in the north to Dunland in the south."
+    },
+    "rhovanion": {
+        "mapSrc": "m.jpg",
+        "PoIs": null,
+        "info": ""
+    },
+    "gondor": {
+        "mapSrc": "m.jpg",
+        "PoIs": null,
+        "info": ""
+    },
+    "mordor": {
+        "mapSrc": "m.jpg",
+        "PoIs": null,
+        "info": ""
+    },
+    "eredluin": {
+        "mapSrc": "m.jpg",
+        "PoIs": [
+            []
+        ],
+        "info": ""
+    },
+    "shire": {
+        "mapSrc": "m.jpg",
+        "PoIs": [
+            []
+        ],
+        "info": ""
+    },
+    "breeland": {
+        "mapSrc": "m.jpg",
+        "PoIs": [
+            []
+        ],
+        "info": ""
+    },
+    "lonelands": {
+        "mapSrc": "m.jpg",
+        "PoIs": [
+            []
+        ],
+        "info": ""
+    },
+    "moria": {
+        "mapSrc": "m.jpg",
+        "PoIs": [
+            []
+        ],
+        "info": ""
+    },
+    "thorinsgate": {
+        "mapSrc": "m.jpg",
+        "PoIs": [
+            []
+        ],
+        "info": ""
+    },
+    "silverdeepmine": {
+        "mapSrc": "m.jpg",
+        "PoIs": [
+            []
+        ],
+        "info": ""
+    }
+}

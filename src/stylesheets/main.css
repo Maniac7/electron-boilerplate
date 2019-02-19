@@ -152,6 +152,8 @@ body {
 .map-viewport {
   margin-bottom: 5px;
   flex-grow: 0.72;
+  display: flex;
+  flex-direction: column;
 }
 
 .map-info {
@@ -210,6 +212,12 @@ body {
 
 .navTreeItem:hover {
   opacity: 1;
+}
+
+/* Styles for Map Viewport */
+
+.map-displayer {
+ flex-grow: 1;
 }
 
 /* Arrows for nav tree (http://cssdeck.com/labs/arrow-svg) */

@@ -18,7 +18,8 @@
       "package.json"
     ],
     "extraResources": [
-      "mapindex.json"
+      "mapindex.json",
+      "mapMeta.json"
     ],
     "directories": {
       "buildResources": "resources"
@@ -38,6 +39,7 @@
   "dependencies": {
     "better-sqlite-pool": "^0.2.0",
     "better-sqlite3": "^5.2.1",
+    "electron-store": "^2.0.0",
     "enmap": "^4.5.0",
     "fs-jetpack": "^2.1.0"
   },

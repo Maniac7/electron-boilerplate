@@ -1,3 +1,4 @@
+/* eslint max-len: ["error", { "code": 100 }] */
 /* eslint-disable no-unused-vars */
 import './stylesheets/main.css';
 
@@ -12,3 +13,5 @@ import jetpack from 'fs-jetpack';
 
 const app = remote.app;
 const appDir = jetpack.cwd(app.getAppPath());
+
+document.getElementById('viewport').style.backgroundImage = 'url(\'../maps/defaultm.jpg\')';

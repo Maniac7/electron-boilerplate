@@ -3,6 +3,7 @@
 
 import fs from 'fs';
 import env from 'env';
+import mapLoader from './map_loader.js';
 
 let mapIndexJSON;
 
@@ -57,6 +58,11 @@ mapIndex.newTreeItem = (depth, iname, name, parent, slevel, hasChild, srcb) => {
       mapIndex.toggleShowChildren(this);
     });
   }
+
+  treeItem.addEventListener('click', function() {
+    // eslint-disable-next-line no-invalid-this
+    mapLoader.loadCurMap(this);
+  });
 
   console.log(srcb);
 };
