@@ -4,6 +4,7 @@ import fs from 'fs';
 
 const mapLoader = {};
 let mapMetaJSON;
+const viewport = document.getElementById('viewport');
 
 if (env.name == 'production') {
   mapMetaJSON = fs.readFileSync(`${process.resourcesPath}/mapMeta.json`, (err) => {
@@ -20,13 +21,25 @@ const mapMeta = JSON.parse(mapMetaJSON);
 mapLoader.loadCurMap = (el) => {
   const selectedMap = el.nextSibling.id;
   const mapSrc = mapMeta[selectedMap].mapSrc;
+  mapLoader.isDown = false;
+  mapLoader.offSet = null;
 
   // change background image of viewport
-  document.getElementById('viewport').style.backgroundImage = 'url(\'../maps/' + mapSrc + '\')';
+  viewport.style.backgroundImage = 'url(\'../maps/' + mapSrc + '\')';
 };
 
-mapLoader.moveMap = (el) => {
-
+mapLoader.mouseDown = (e) => {
+  mapLoader.isDown = true;
+  mapLoader.offSet = [
+    e.target.offsetLeft - e.clientX,
+    e.target.offsetTop - e.clientY,
+  ];
 };
+
+mapLoader.mouseUp = (e) => {
+  mapLoader.isDown = false;
+};
+
+viewport.addEventListener('mousedown', mapLoader.mouseDown, true);
 
 export default mapLoader;
