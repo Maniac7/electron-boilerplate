@@ -149,11 +149,12 @@ body {
   margin-bottom: 20px;
 }
 
-.map-viewport {
+.map-viewer {
   margin-bottom: 5px;
   flex-grow: 0.72;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .map-info {
@@ -217,7 +218,13 @@ body {
 /* Styles for Map Viewport */
 
 .map-displayer {
- flex-grow: 1;
+ position: absolute;
+ top:0;
+ left:0;
+}
+
+.map-viewport {
+  position: relative;
 }
 
 /* Arrows for nav tree (http://cssdeck.com/labs/arrow-svg) */

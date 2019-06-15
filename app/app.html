@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <title>Maniac Maps [Dev Build]</title>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" name="viewport">
@@ -48,8 +49,10 @@
         <div class="nav-title">Maps</div>
     </div>
     <div class="map-col column-view dark">
-        <div class="map-viewport" style="background-color: antiquewhite">
-            <div class="map-displayer" id="viewport"></div>
+        <div class="map-viewer">
+            <div class="map-viewport" id="viewbox">
+                <img class="map-displayer" draggable="false" id="viewport"></img>
+            </div>
         </div>
         <div class="map-info darkest"></div>
     </div>
