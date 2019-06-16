@@ -1,6 +1,5 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 const translateEnvToMode = (env) => {
   if (env === 'production') {
@@ -41,10 +40,16 @@ module.exports = (env) => {
             'file-loader',
           ],
         },
+        {
+          test: /\.(png|svg|jpg|gif)$/,
+          use: {
+            loader: 'url-loader',
+            options: {
+              limit: 25000,
+            },
+          },
+        },
       ],
     },
-    plugins: [
-      new FriendlyErrorsWebpackPlugin({clearConsole: env === 'development'}),
-    ],
   };
 };

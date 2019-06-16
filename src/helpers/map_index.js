@@ -150,4 +150,4 @@ mapIndex.toggleTopStyle = (el) => {
 //     return Math.ceil(el.offsetHeight);
 // }
 
-mapIndex.genNavTree();
+export default mapIndex;

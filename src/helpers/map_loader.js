@@ -16,7 +16,7 @@ mapLoader.loadCurMap = (el) => {
   mapLoader.offSet = null;
 
   // change background image of viewport
-  viewport.src = '../maps/' + mapSrc;
+  viewport.src = '../src/images/maps/' + mapSrc;
 };
 
 // mapLoader.mouseDown = (e) => {

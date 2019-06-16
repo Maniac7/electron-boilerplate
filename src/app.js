@@ -6,12 +6,14 @@ import './stylesheets/main.css';
 import './helpers/context_menu.js';
 import './helpers/external_links.js';
 import './helpers/navbuttons.js';
-import './helpers/map_index.js';
+import mapIndex from './helpers/map_index.js';
+import defaultMap from './images/maps/defaultm.jpg';
 
 import {remote} from 'electron';
 import jetpack from 'fs-jetpack';
 
 const app = remote.app;
 const appDir = jetpack.cwd(app.getAppPath());
+mapIndex.genNavTree();
 
-document.getElementById('viewport').src = '../maps/defaultm.jpg';
+document.getElementById('viewport').src = defaultMap;

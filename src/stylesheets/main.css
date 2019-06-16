@@ -245,15 +245,16 @@ body {
 }
 
 /* Styles for Map Viewport */
-
-.map-displayer {
+/* 
+#viewport {
  position: absolute;
  top:0;
  left:0;
-}
+} */
 
-.map-viewport {
+#viewbox {
   position: relative;
+  flex-grow: 1;
 }
 
 /* Arrows for nav tree (http://cssdeck.com/labs/arrow-svg) */
