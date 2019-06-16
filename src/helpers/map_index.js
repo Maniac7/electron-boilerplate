@@ -1,23 +1,8 @@
 /* eslint max-len: ["error", { "code": 100 }] */
 // loads latest map index and metadata from mapindex.json
 
-import fs from 'fs';
-import env from 'env';
 import mapLoader from './map_loader.js';
-
-let mapIndexJSON;
-
-if (env.name == 'production') {
-  mapIndexJSON = fs.readFileSync(`${process.resourcesPath}/mapindex.json`, (err) => {
-    console.log(err);
-  });
-} else if (env.name == 'development') {
-  mapIndexJSON = fs.readFileSync(`./mapindex.json`, (err) => {
-    console.log(err);
-  });
-}
-
-const mapIndex = JSON.parse(mapIndexJSON);
+import mapIndex from '../data/mapindex.json';
 
 console.log(mapIndex.mapArr);
 

@@ -1,6 +1,6 @@
 {
   "name": "lotromapviewer",
-  "productName": "LOTRMaps",
+  "productName": "LOTROMaps",
   "description": "Display maps from LOTRO with metadata",
   "version": "0.0.0",
   "private": true,
@@ -34,7 +34,7 @@
     "e2e": "mocha temp/e2e.js --require source-map-support/register",
     "test": "npm run unit && npm run e2e",
     "start": "node build/start.js",
-    "release": "webpack --config=build/webpack.app.config.js --env=development && electron-builder"
+    "release": "webpack --config=build/webpack.app.config.js --env=production && electron-builder"
   },
   "dependencies": {
     "better-sqlite-pool": "^0.2.0",
@@ -56,6 +56,7 @@
     "electron-mocha": "^6.0.4",
     "eslint": "^5.14.0",
     "eslint-config-google": "^0.12.0",
+    "file-loader": "^4.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "mocha": "^5.2.0",
     "source-map-support": "^0.5.6",

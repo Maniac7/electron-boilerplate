@@ -1,27 +1,13 @@
 /* eslint max-len: ["error", { "code": 100 }] */
-import env from 'env';
-import fs from 'fs';
 import Draggable from 'draggable';
+import mapMeta from '../data/mapMeta.json';
 
 const mapLoader = {};
-let mapMetaJSON;
 const viewport = document.getElementById('viewport');
-
-if (env.name == 'production') {
-  mapMetaJSON = fs.readFileSync(`${process.resourcesPath}/mapMeta.json`, (err) => {
-    console.log(err);
-  });
-} else if (env.name == 'development') {
-  mapMetaJSON = fs.readFileSync(`./mapMeta.json`, (err) => {
-    console.log(err);
-  });
-}
 
 new Draggable(viewport, {
   // limit: viewport,
 });
-
-const mapMeta = JSON.parse(mapMetaJSON);
 
 mapLoader.loadCurMap = (el) => {
   const selectedMap = el.nextSibling.id;
